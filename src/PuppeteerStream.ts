@@ -15,18 +15,18 @@ export class Stream extends Readable {
 
 	_read() {}
 
-	async destroy() {
-		super.destroy();
-		// @ts-ignore
-		await this.page.browser().videoCaptureExtension.evaluate(
-			(index: string) => {
-				// @ts-ignore
-				STOP_RECORDING(index);
-			},
-			// @ts-ignore
-			this.page._id
-		);
-	}
+	// async destroy() {
+	// 	super.destroy();
+	// 	// @ts-ignore
+	// 	await this.page.browser().videoCaptureExtension.evaluate(
+	// 		(index: string) => {
+	// 			// @ts-ignore
+	// 			STOP_RECORDING(index);
+	// 		},
+	// 		// @ts-ignore
+	// 		this.page._id
+	// 	);
+	// }
 }
 
 declare module "puppeteer" {
